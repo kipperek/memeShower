@@ -39,7 +39,8 @@ app.post('/loadmeme',  (req, res) => {
 });
 
 let sendMeme = () => {
-  appSocket.emit('meme', memeArray[0])
+  appSocket.broadcast.emit('meme', memeArray[0]);
+  appSocket.emit('meme', memeArray[0]);
 };
 
 io.on('connection', (socket) => {
